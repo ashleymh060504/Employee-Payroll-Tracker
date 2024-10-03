@@ -9,7 +9,10 @@ const collectEmployees = function () {
       const lastName = prompt("Enter the employee's last name:");
       let salary = prompt("Enter the employee's salary:");
 
-      salary = isNaN(salary) ? 0 : Number(salary);
+      salary = Number(salary);
+      if (isNaN(salary) || salary < 0) {
+          salary = 0;
+      }
 
       const currentEmployee = {
           firstName: firstName,
@@ -41,10 +44,14 @@ const displayAverageSalary = function (employeesArray) {
 
     const averageSalary = totalSalary / employeesArray.length;
 
-    console.log(`The average employee salary between our employee(s) is $${averageSalary.toFixed(2)}`);
+    console.log(`The average employee salary between our ${employeesArray.length} employee(s) is $${averageSalary.toFixed(2)}`);
 }
 
 const getRandomEmployee = function (employeesArray) {
+    if (employeesArray.length === 0) {
+      console.log("No employees available for random selection.");
+      return;
+    }
   
   const randomIndex = Math.floor(Math.random() * employeesArray.length);
   
