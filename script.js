@@ -9,7 +9,7 @@ const collectEmployees = function () {
       const lastName = prompt("Enter the employee's last name:");
       let salary = prompt("Enter the employee's salary:");
 
-      salary = isNaN(salary) ? 0 : Number(salary);
+      salary = (salary === null || salary.trim() === '' || isNaN(salary)) ? 0 : Number(salary);
 
       const currentEmployee = {
           firstName: firstName,
