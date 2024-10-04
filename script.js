@@ -19,14 +19,11 @@ const collectEmployees = function () {
               lastName: lastName,
               salary: salary
           };
-          console.log(currentEmployee)
-    
+          
           employeesArray.push(currentEmployee);
-          // Ask the user if they want to add another employee
           addMore = confirm("Do you want to add another employee?");
     }
     
-
   return employeesArray; 
 };
 
