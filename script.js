@@ -1,32 +1,31 @@
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
 const collectEmployees = function () {
-  const employeesArray = []; 
-  let collectEmployees = true; 
+  const employeesArray = [];  
+  let addMore = true;
 
-  while (collectEmployees) {
-      const firstName = prompt("Enter the employee's first name:");
-      const lastName = prompt("Enter the employee's last name:");
-      let salary = prompt("Enter the employee's salary:");
-
-      salary = Number(salary);
-      if (isNaN(salary) || salary < 0) {
-          salary = 0;
-      }
-
-      const currentEmployee = {
-          firstName: firstName,
-          lastName: lastName,
-          salary: salary
-      };
-
-      employeesArray.push(currentEmployee);
-
-      const addAnother = prompt("Do you want to add another employee? (yes/no)").toLowerCase();
-      if (addAnother !== 'yes') {
-          collectEmployees = false; 
-      }
-  }
+    while (addMore) {
+          const firstName = prompt("Enter the employee's first name:");
+          const lastName = prompt("Enter the employee's last name:");
+          let salary = prompt("Enter the employee's salary:");
+    
+          salary = Number(salary);
+          if (isNaN(salary) || salary < 0) {
+              salary = 0;
+          }
+    
+          const currentEmployee = {
+              firstName: firstName,
+              lastName: lastName,
+              salary: salary
+          };
+          console.log(currentEmployee)
+    
+          employeesArray.push(currentEmployee);
+          // Ask the user if they want to add another employee
+          addMore = confirm("Do you want to add another employee?");
+    }
+    
 
   return employeesArray; 
 };
